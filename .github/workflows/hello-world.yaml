@@ -50,7 +50,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Echo Variable
         run: echo "${{ vars.whoisgay }}"
-      - name: Echo sniffing Variable
+      - name: Echo sniffing Variables
         run: echo ${{ vars.sniff }}
       - name: Echo Secret
         run: echo "${{ secrets.WHO_MITMASKEN }}"
