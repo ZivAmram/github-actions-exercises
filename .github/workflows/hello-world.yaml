@@ -53,4 +53,4 @@ jobs:
       - name: Echo sniffing Variable
         run: echo ${{ env.sniff }}
       - name: Echo Secret
-        run: echo ${{ secrets.WHO_MITMASKEN }}
+        run: echo "${{ secrets.WHO_MITMASKEN }}"
