@@ -1,2 +1,2 @@
 #!/bin/bash
-rm file.txt
+rm /home/runner/file.txt

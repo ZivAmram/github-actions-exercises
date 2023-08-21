@@ -32,7 +32,7 @@ jobs:
     needs: test
     steps:
       - name: Create a text file
-        run: touch file.txt
+        run: touch /home/runner/file.txt
       - name: List runner
         run: ls /home/runner/
       - name: cleanup
