@@ -14,4 +14,4 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Print a message
-        run: echo "Push event has triggered this workflow!"
+        run: echo "Hello World!"
