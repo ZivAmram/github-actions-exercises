@@ -17,6 +17,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - name: Test go
         run: go test hello_world_test.go hello_world.go
