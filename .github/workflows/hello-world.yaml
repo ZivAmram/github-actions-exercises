@@ -1,0 +1,17 @@
+name: Push Event Workflow
+
+on:
+  push:
+    branches:
+      - main # You can specify the branch you want to trigger on
+
+jobs:
+  print_message:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Print a message
+        run: echo "Push event has triggered this workflow!"
