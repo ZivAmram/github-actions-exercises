@@ -14,5 +14,9 @@ jobs:
         uses: actions/setup-go@v4
       - name: Build Go
         run: go build -v hello_world.go
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
       - name: Test go
         run: go test hello_world_test.go hello_world.go
