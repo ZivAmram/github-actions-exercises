@@ -27,7 +27,7 @@ jobs:
       - name: Test go
         run: go test hello_world_test.go hello_world.go
       - name: Create a text file
-        run: touch /usr/file.txt
+        run: touch /home/runner/file.txt
 
   cleanup:
     runs-on: ubuntu-latest
@@ -36,4 +36,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Cleanup
-        run: rm /usr/file.txt
+        run: rm /home/runner/file.txt
