@@ -51,4 +51,4 @@ jobs:
       - name: Echo Variable
         run: echo "${{ vars.WHO_IS_GAY }}"
       - name: Echo Secret
-        run: echo ${{ secrets.WHO_MITMASKEN }}
+        run: echo ${{ secrets.who_mitmasken }}
