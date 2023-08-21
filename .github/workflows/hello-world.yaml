@@ -50,5 +50,5 @@ jobs:
         uses: actions/checkout@v3
       - name: Echo Variable
         run: echo $WHO_IS_GAY
-      # - name: Echo Secret
-      #   run: echo ${{ secret.WHO_MITMASKEN }}
+      - name: Echo Secret
+        run: echo ${{ secret.WHO_MITMASKEN }}
