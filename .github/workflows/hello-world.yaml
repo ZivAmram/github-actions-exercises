@@ -28,12 +28,18 @@ jobs:
         run: go test hello_world_test.go hello_world.go
       - name: Create a text file
         run: touch /home/runner/file.txt
+      - name: List runner
+        run: ls /home/runner/
 
   cleanup:
     runs-on: ubuntu-latest
     needs: test
     steps:
+      - name: List runner
+        run: ls /home/runner/
       - name: Checkout
         uses: actions/checkout@v3
+      - name: List runner
+        run: ls /home/runner/
       - name: Cleanup
         run: rm /home/runner/file.txt
