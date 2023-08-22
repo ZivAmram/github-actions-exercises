@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Deliver a new package</title>
+</head>
+
+<body>
+    <h1>Deliver a new package</h1>
+    <form id="dataForm">
+        <label for="custumer_name">Name:</label>
+        <input type="text" id="custumer_name" name="custumer_name">
+        <br>
+
+        <label for="package_id">package_id:</label>
+        <input type="number" id="package_id" name="package_id">
+        <br>
+
+        <label for="custumer_email">Customer Email:</label>
+        <input type="email" id="custumer_email" name="custumer_email">
+        <br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        document.getElementById("dataForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const cusumer_name = document.getElementById("custumer_name").value;
+            const package_id = document.getElementById("package_id").value;
+            const custumer_email = document.getElementById("custumer_email").value;
+
+            fetch("/supplier", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ "custumer_name": cusumer_name, "package_id": package_id, "custumer_email": custumer_email }) // Fixed typo in variable name
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === "success") {
+                        document.getElementById("result").innerText = "Data inserted successfully!";
+                    } else {
+                        document.getElementById("result").innerText = "Error: " + data.message;
+                    }
+                })
+                .catch(error => {
+                    document.getElementById("result").innerText = "Error: " + error.message;
+                });
+        });
+    </script>
+</body>
+
+</html>

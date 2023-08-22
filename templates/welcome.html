@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
+      position: relative;
+    }
+
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      text-align: center;
+      text-decoration: none;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+      cursor: pointer;
+      margin-bottom: 10px;
+      width: 200px;
+    }
+
+    .button:hover {
+      background-color: #0056b3;
+    }
+
+    .dark-mode-toggle {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    .dark-mode-toggle .toggle-button {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    .dark-mode-toggle .toggle-button.dark {
+      background-color: #000;
+    }
+
+    .dark-mode-toggle .toggle-label {
+      margin-left: 5px;
+      font-size: 14px;
+    }
+
+    /* Dark mode styles */
+    body.dark-mode {
+      --bg-color: #222;
+      --text-color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="title">Welcome!</h1>
+    <div>Who are you?</div>
+  <div class="button-container">
+    <button class="button" onclick="location.href='client'">Client</button>
+    <button class="button" onclick="location.href='supplier'">Supplier</button>
+    <button class="button" onclick="location.href='courier'">Courier</button>
+  </div>
+
+  <div class="dark-mode-toggle">
+    <div class="toggle-button"></div>
+    <span class="toggle-label">Dark Mode</span>
+  </div>
+
+  <script>
+    const toggleButton = document.querySelector('.toggle-button');
+    const toggleLabel = document.querySelector('.toggle-label');
+    const body = document.querySelector('body');
+
+    toggleButton.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      if (body.classList.contains('dark-mode')) {
+        toggleButton.classList.add('dark');
+        toggleLabel.textContent = 'Light Mode';
+      } else {
+        toggleButton.classList.remove('dark');
+        toggleLabel.textContent = 'Dark Mode';
+      }
+    });
+  </script>
+</body>
+</html>
