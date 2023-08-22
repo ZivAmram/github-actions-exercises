@@ -97,7 +97,7 @@ jobs:
           create_repo: false
           repo: 614366605422.dkr.ecr.us-east-1.amazonaws.com/dti
           region: us-east-1
-          tags: latest,${{ github.sha }}
+          
           
       # - name: login
       #   run: |
