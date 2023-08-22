@@ -90,17 +90,16 @@ jobs:
         uses: actions/checkout@v2
       - name: Using ECR
         uses: docker://ghcr.io/kciter/aws-ecr-action:latest
+      - name: Set up AWS CLI
+        uses: aws-actions/configure-aws-credentials@v1
         with:
-          access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          account_id: ${{ secrets.AWS_ACCOUNT_ID }}
-          create_repo: false
-          repo: 614366605422.dkr.ecr.us-east-1.amazonaws.com/dti
-          region: us-east-1
-          
-          
-      # - name: login
-      #   run: |
-      #   aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 614366605422.dkr.ecr.us-east-1.amazonaws.com
-       
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1    
+      - name: login
+        run: |
+          aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 614366605422.dkr.ecr.us-east-1.amazonaws.com
+          docker build -t dti .
+          docker tag dti:latest 614366605422.dkr.ecr.us-east-1.amazonaws.com/dti:latest
+          docker push 614366605422.dkr.ecr.us-east-1.amazonaws.com/dti:latest
 
