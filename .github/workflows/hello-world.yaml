@@ -88,8 +88,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Using ECR
-        uses: docker://ghcr.io/kciter/aws-ecr-action:latest
       - name: Set up AWS CLI
         uses: aws-actions/configure-aws-credentials@v1
         with:
